@@ -1,0 +1,129 @@
+     /* Reset default margin, padding, and box-sizing for all elements */
+     * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body styling: background gradient, centering, and font setup */
+    body {
+        /* background: linear-gradient(to right, #bd93e9, #b8cbee);  */
+        background-color: #99a9e9;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Nunito Sans", serif;
+    }
+
+    /* Card styling: rounded corners, box shadow, and custom border radius */
+    .card {
+        border-radius: 20px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 4px 8px rgb(12, 12, 12);
+        border-radius: 20px 20px 20px 20px;
+    }
+
+    /* Card header styling: gradient background */
+    .card-header {
+        /* background: linear-gradient(45deg, #2b9cf2, #7939f1); */
+        background-color: #5d49fa;
+    }
+
+    /* Input field focus effect: custom border and box shadow */
+    .form-control:focus {
+        border-color: #6a11cb;
+        box-shadow: 0 0 0 0.2rem rgba(106, 17, 203, 0.25);
+    }
+
+    /* Button styling: gradient background, padding, font styling, and shadow */
+    .btn {
+        background: linear-gradient(45deg, #6a11cb, #2575fc);
+        color: white;
+        border: none;
+        padding: 10px 19px;
+        font-size: 18px;
+        font-weight: bold;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 50px 10px 50px 10px;
+    }
+
+    /* Button hover effect: change gradient and scale button */
+    .btn:hover {
+        background: linear-gradient(45deg, #2b9cf2, #7939f1);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        color: white;
+        transform: scale(1.03);
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Button focus effect: outline removal and glow */
+    .btn:focus {
+        outline: none;
+        /* Remove outline */
+        box-shadow: 0 0 5px 3px rgba(106, 17, 203, 0.5);
+    }
+
+    /* Navigation tab styling: remove bottom border */
+    .nav-tabs {
+        border-bottom: none;
+    }
+
+    /* Navigation link styling: size, background, and transitions */
+    .nav-tabs .nav-link {
+        height: 50px;
+        width: 150px;
+        background-color: #f8f9fa;
+        color: #6a11cb;
+        border: none;
+        border-radius: 50px 10px 50px 10px;
+        margin: 10px;
+        font-size: 18px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Active tab link styling: gradient background and white text */
+    .nav-tabs .nav-link.active {
+        background: linear-gradient(45deg, #6a11cb, #2575fc);
+        color: white;
+    }
+
+    /* Active tab link hover effect: hover gradient and scaling */
+    .nav-tabs .nav-link.active:hover {
+        background: linear-gradient(45deg, #2b9cf2, #7939f1);
+        transform: scale(1.03);
+    }
+
+    /* Navigation link hover effect: background change and scaling */
+    .nav-tabs .nav-link:hover {
+        color: white;
+        background: linear-gradient(45deg, #2b9cf2, #7939f1);
+        transform: scale(1.03);
+    }
+
+    /* Avatar styling: circular shape, background, and shadow */
+    .avatar {
+        width: 80px;
+        height: 80px;
+        background-color: #f8f9fa;
+        border-radius: 50%;
+        margin: 10px auto;
+        /* Center avatar */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: #6a11cb;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Label styling: bold text */
+    label {
+        font-weight: bold;
+    }
+
+    /* Icon styling: set color */
+    .icon {
+        color: #6a11cb;
+    }

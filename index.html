@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for charset and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of the webpage -->
+    <title>Registration and Login</title>
+
+    <!-- Preconnect to external font and Bootstrap CDN for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google font 'Nunito Sans' -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- Link to custom styles (style.css) -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Main row to center the content on the page -->
+        <div class="row justify-content-center">
+            <!-- Column to hold the card -->
+            <div class="col-md-6">
+                <div class="card">
+                    <!-- Card header with welcome text and avatar icon -->
+                    <div class="card-header text-center text-white">
+                        <div class="avatar"><i class="fas fa-user"></i></div>
+                        <h2>Welcome To Our Site</h2>
+                        <p class="fs-5" id="headerText">Please, Register Yourself...</p>
+                    </div>
+
+                    <!-- Card body with tabs for registration and login -->
+                    <div class="card-body pt-4">
+                        <!-- Tabs to toggle between Registration and Login forms -->
+                        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="register-tab" data-bs-toggle="tab"
+                                    data-bs-target="#register" type="button"
+                                    onclick="document.getElementById('headerText').innerText = 'Please, Register Yourself...';">
+                                    <span class="fs-5">Register</span>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="login-tab" data-bs-toggle="tab" data-bs-target="#login"
+                                    type="button" 
+                                    onclick="document.getElementById('headerText').innerText = 'Please, Login Yourself...';">
+                                    <span class="fs-5">Login</span>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab content containing forms for registration and login -->
+                        <div class="tab-content pt-4" id="myTabContent">
+                            <!-- Registration form -->
+                            <div class="tab-pane fade show active" id="register" role="tabpanel"
+                                aria-labelledby="register-tab">
+                                <form>
+                                    <!-- Name input field -->
+                                    <div class="mb-3">
+                                        <label for="registerName" class="form-label"><i class="fas fa-user icon"></i>
+                                            Name :</label>
+                                        <input type="text" class="form-control" id="registerName"
+                                            placeholder="Enter your name" required>
+                                    </div>
+
+                                    <!-- Email input field -->
+                                    <div class="mb-3">
+                                        <label for="registerEmail" class="form-label"><i
+                                                class="fas fa-envelope icon"></i> Email :</label>
+                                        <input type="email" class="form-control" id="registerEmail"
+                                            placeholder="Enter your email" required>
+                                    </div>
+
+                                    <!-- Password input field -->
+                                    <div class="mb-3">
+                                        <label for="registerPassword" class="form-label"><i
+                                                class="fas fa-lock icon"></i> Password :</label>
+                                        <input type="password" class="form-control" id="registerPassword"
+                                            placeholder="Create a password" required maxlength="8">
+                                    </div>
+
+                                    <!-- Captcha field for security -->
+                                    <div class="mb-3">
+                                        <label for="captchaCode" class="form-label"><i class="fas fa-robot icon"></i>
+                                            Captcha :</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="captchaCode" readonly>
+                                            <button type="button" class="btn"
+                                                onclick="generateCaptcha()">Refresh</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Input field to enter captcha -->
+                                    <div class="mb-3">
+                                        <label for="captchaInput" class="form-label">Enter Captcha :</label>
+                                        <input type="text" class="form-control" id="captchaInput"
+                                            placeholder="Enter the captcha" required>
+                                    </div>
+
+                                    <!-- Register button -->
+                                    <div class="d-grid">
+                                        <button type="button" class="btn main-btn"
+                                            onclick="validateRegistration()">Register</button>
+                                    </div>
+                                </form>
+                                <!-- Result of registration will be displayed here -->
+                                <div id="result-1" class="mt-3 fs-5 d-flex justify-content-center"></div>
+                            </div>
+
+                            <!-- Login form -->
+                            <div class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
+                                <form>
+                                    <!-- Email input field for login -->
+                                    <div class="mb-3">
+                                        <label for="loginEmail" class="form-label"><i class="fas fa-envelope icon"></i>
+                                            Email :</label>
+                                        <input type="email" class="form-control" id="loginEmail"
+                                            placeholder="Enter your email" required>
+                                    </div>
+
+                                    <!-- Password input field for login -->
+                                    <div class="mb-3">
+                                        <label for="loginPassword" class="form-label"><i class="fas fa-lock icon"></i>
+                                            Password :</label>
+                                        <input type="password" class="form-control" id="loginPassword"
+                                            placeholder="Enter your password" required maxlength="8">
+                                    </div>
+
+                                    <!-- Login button -->
+                                    <div class="d-grid">
+                                        <button type="button" class="btn main-btn" onclick="validateLogin(
+
+                                            )">Login</button>
+                                    </div>
+                                </form>
+                                <!-- Result of login will be displayed here -->
+                                <div id="result-2" class="mt-3 fs-5 d-flex justify-content-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JS for the page functionality -->
+    <script src="script.js"></script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+
+</html>
