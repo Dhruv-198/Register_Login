@@ -55,7 +55,7 @@ function validateLogin() {
     var Login_Email = document.getElementById('loginEmail').value;
     var Login_Password = document.getElementById('loginPassword').value;
 
-    var result = document.getElementById('result-2'); // Result div where messages will be displayed
+    var resultLogin = document.getElementById('result-2'); // Result div where messages will be displayed
     resultLogin.innerHTML = ""; // Clear previous results
 
     if (!temp_Register_Email || !temp_Register_Password) {
